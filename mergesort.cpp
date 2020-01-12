@@ -1,6 +1,7 @@
 // filename: mergesort.cpp
 
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 void printArray (int A[], int n) {
@@ -54,7 +55,11 @@ int main() {
 	int A[n] = {96,48,91,94,31,77,2};
 	cout<<"Original array: \n";
 	printArray(A, n);
+	auto start = chrono::system_clock::now();
 	startMergeSort(A, n);
+	auto end = chrono::system_clock::now();
+	chrono::duration<double> duration = end - start;
 	cout<< "Sorted array: \n";
 	printArray(A, n);
+	cout<<"Duration: "<<duration.count()<<"s\n"
 }
