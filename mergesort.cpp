@@ -61,5 +61,5 @@ int main() {
 	chrono::duration<double> duration = end - start;
 	cout<< "Sorted array: \n";
 	printArray(A, n);
-	cout<<"Duration: "<<duration.count()<<"s\n"
+	cout<<"Duration: "<<duration.count()<<"s\n";
 }
