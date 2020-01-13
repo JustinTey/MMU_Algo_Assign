@@ -68,7 +68,7 @@ int main(){
 		array[size] = rand()%RAND_MAX;
 	
 	auto start = chrono::system_clock::now();
-	mergeSort(array, size, 0, size-1);
+	mergeSort(array, size, 0, size);
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 	
