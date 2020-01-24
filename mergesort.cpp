@@ -12,17 +12,17 @@ void printArray (int A[], int n) {
 
 void merge (int A[], int Temp[], int p, int m, int r) {
   int i, j;
-  for (i = m + 1; i > p; i--)
-    Temp[i - 1] = A[i - 1];
-  for (j = m; j < r; j++)
-    Temp [r + m - j] = A[j + 1];
+  for (i = m + 1; i > p; i--) //n
+    Temp[i - 1] = A[i - 1];  //n + 5
+  for (j = m; j < r; j++)  //n 
+    Temp [r + m - j] = A[j + 1]; //n +6
   
-  for (int k = p; k <= r; k++)
-    if (Temp[j] < Temp [i])
-      A[k] = Temp[j--];
+  for (int k = p; k <= r; k++) //n
+    if (Temp[j] < Temp [i])	//n + 2
+      A[k] = Temp[j--];		//n + 2
     else
-      A[k] = Temp[i++];
-}
+      A[k] = Temp[i++];		//n+2
+} //total 8n + 17
 
 void mergesort (int A[], int Temp[], int p, int r) {
   // Put your code here!
