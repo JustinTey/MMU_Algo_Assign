@@ -4,6 +4,7 @@
 #include <time.h>
 using namespace std;
 
+
 void generateArray (int A[], int size){
 	for(int i = 0; i < size; i++)
 		 A[i] = i+1;
@@ -13,7 +14,7 @@ void generateArray2(int A[], int size){
 	srand(1); //time(NULL) for random
 
 	for(int i = 0; i < size; i++)
-        A[i] = rand() % 100 + 100;
+        A[i] = rand() % 10 + 1;
 		// A[i] = rand() % 10000 + 1; //range of 1 to 10000
 }
 
@@ -27,9 +28,9 @@ int partition(int arr[], int p, int r, char flag) {
     else
         pivotIndex = r;
 
+	swap ( arr[pivotIndex], arr[r] );
 	pi = arr[r];
 	swapIndex = p;
-	swap ( arr[pivotIndex], arr[r] );
 
 	for (int i = p; i < r; i++){
 		if ( arr[i] < pi ){
@@ -80,6 +81,7 @@ int main(){
     for(int i = 0; i < ARRAY_SIZE; i++)
         cout << A[i]<<"    ";
     cout << endl;
+	
 	auto start = chrono::system_clock::now();
 	if(choice == 1)
         cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, ARRAY_SIZE - 1, 'b') << endl;
@@ -88,9 +90,10 @@ int main(){
     else if(choice == 3)
         cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, ARRAY_SIZE - 1, 'w') << endl;
 	auto end = chrono::system_clock::now();
-
+	
+	chrono::duration<double> duration = end - start;
     for(int i = 0; i < ARRAY_SIZE; i++)
         cout << A[i]<<"    ";
- 	chrono::duration<double> duration = end - start;
+
  	cout << "\nDuration: "<<duration.count()<<endl;
 }
