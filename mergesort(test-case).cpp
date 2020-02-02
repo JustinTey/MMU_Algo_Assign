@@ -62,14 +62,14 @@ void mergeSort(int *array, int size, int p, int r){
 
 void bestCase(int *array,int size){
 	//Test size between 0 to 10000.
-	for(int i = 0; i <= size; i++)
+	for(int i = 0; i < size; i++)
 		array[i] = i;
 }
 
 void worstCase(int *array,int size){
 	//Test size between 0 to 10000.
 	int range = size;
-	for(int i = 0; i <= size; i++){
+	for(int i = 0; i < size; i++){
 		array[i] = range;
 		range--;
 	}
@@ -79,8 +79,8 @@ void averageCase(int *array, int size){
 	//Test size between 0 to 10000.
 	//Init random number generator.
 	srand(time(0));
-	for(int i = 0; i <= size; i++)
-		array[i] = (rand()%10000);
+	for(int i = 0; i < size; i++)
+		array[i] = (rand()%size);
 }
 
 int main(){
@@ -110,7 +110,7 @@ int main(){
 	//Show sorted output.	
 	cout << "\n\nAfter sorted: ";
 	auto start = chrono::system_clock::now();
-	mergeSort(array, size, 0, size);
+	mergeSort(array, size, 0, size-1);
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 		
