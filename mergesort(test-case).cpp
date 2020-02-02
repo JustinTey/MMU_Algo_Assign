@@ -100,9 +100,14 @@ int main(){
 
 		case 3:	worstCase(array,size);
 			break;
+		default : cout<<"Input incorrect exiting program";
+			  exit(0);
 				
 	}
 	
+	//retrive k-element to find
+	cout<<"Which element would you like to find in the array?"<<endl;
+	cin>>input;
 	//Show original output.
 	cout << "Before sort: ";					
 	printArray(array,size);
@@ -111,11 +116,14 @@ int main(){
 	cout << "\n\nAfter sorted: ";
 	auto start = chrono::system_clock::now();
 	mergeSort(array, size, 0, size-1);
+	int answer = array[input-1];
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 		
 	printArray(array,size);
 	cout << "Duration: " << duration.count() << "s\n";
+	
+	cout<< "Element in position " <<input<<" is "<< answer;
 
 	return 0;
 }
