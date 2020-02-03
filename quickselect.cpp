@@ -10,7 +10,7 @@ void printArray (int A[], int n ) {
 }
 
 void generateArray (int A[], int size){
-	srand(time(NULL)); //time(NULL) for random
+	srand(time(0)); //time(NULL) for random
 	for(int i = 0; i < size; i++)     
 	{
 		 A[i] = rand() % 100 + 1; //range of 1 to 100

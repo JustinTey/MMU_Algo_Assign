@@ -5,7 +5,7 @@
 using namespace std;
 
 void generateArray(int A[], int size){
-	srand(0); //time(NULL) for random
+	srand(1); //time(NULL) for random
 
 	for(int i = 0; i < size; i++)
         A[i] = rand() % size + 1; // A[i] = rand() % 10000 + 1; //range of 1 to 10000

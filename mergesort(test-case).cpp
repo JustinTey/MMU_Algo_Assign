@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
+#include <fstream>
 using namespace std;
 
 void printArray (int *array, int size){
@@ -78,7 +79,7 @@ void worstCase(int *array,int size){
 void averageCase(int *array, int size){
 	//Test size between 0 to 10000.
 	//Init random number generator.
-	srand(time(0));
+	srand(1);
 	for(int i = 0; i <= size; i++)
 		array[i] = rand()%size;
 }
@@ -104,6 +105,14 @@ int main(){
 			exit(0);
 				
 	}
+	
+	//Write output into a txt for checking purposes
+	ofstream outFile;
+	outFile.open("check.txt");
+	for (int i =0; i < size; i++)
+		outFile << A[i] << " ";
+	outFile.close();
+	
 	//retrive k-element to find
 	cout<<"Which element would you like to find in the array?"<<endl;
 	cin>>input;
