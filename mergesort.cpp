@@ -10,25 +10,28 @@ void printArray (int A[], int n) {
 
 void generateArray (int A[], int size){
 	srand(time(NULL)); //time(NULL) for random
-	for(int i = 0; i < size; i++)     
-	{
+	for(int i = 0; i < size; i++) {
 		 A[i] = rand() % 100 + 1; //range of 1 to 100
 	}
 }
 
 void merge (int A[], int Temp[], int p, int m, int r) {
 	int i, j;
-	for (i = m + 1; i > p; i--) //n
-		Temp[i - 1] = A[i - 1];  //n + 5
-	for (j = m; j < r; j++)  //n 
-		Temp [r + m - j] = A[j + 1]; //n +6
+	for (i = m + 1; i > p; i--){
+		Temp[i - 1] = A[i - 1];  
+	}
+	
+	for (j = m; j < r; j++) {  
+		Temp [r + m - j] = A[j + 1];
+	}
 
-	for (int k = p; k <= r; k++) //n
-	if (Temp[j] < Temp [i])	//n + 2
-		A[k] = Temp[j--];		//n + 2
-	else
-		A[k] = Temp[i++];		//n+2
-} //total 8n + 17
+	for (int k = p; k <= r; k++){
+		if (Temp[j] < Temp [i])	
+			A[k] = Temp[j--];		
+		else
+			A[k] = Temp[i++];	
+	}	
+} 
 
 void mergesort (int A[], int Temp[], int p, int r) {
 	if (p < r) 
@@ -45,9 +48,9 @@ void mergesort (int A[], int Temp[], int p, int r) {
 }
 
 void startMergeSort (int A[], int n) {
-  int* Temp = new int[n];
-  mergesort (A, Temp, 0, n-1);
-  delete [] Temp;
+	int* Temp = new int[n];
+	mergesort (A, Temp, 0, n-1);
+	delete [] Temp;
 }
 
 int main() {
