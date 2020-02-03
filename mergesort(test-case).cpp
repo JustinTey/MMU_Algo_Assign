@@ -13,7 +13,7 @@ void printArray (int *array, int size){
 void merge(int *array, int size, int p,int r){
     
 	//Set the temp object size.
-    int temp[size];
+    int* temp = new int[size];
 	
 	//Midpoint of the array.
 	int mid = (p + r)/2;
@@ -86,7 +86,7 @@ void averageCase(int *array, int size){
 
 int main(){
 	const int size = 100000; 
-	int array[size];
+	int* array = new int[size];
 	
 	int input;
 	cout << "1 -- Best case\n2 -- Average case\n3 -- Worst case\n\nSelect the test case: ";
