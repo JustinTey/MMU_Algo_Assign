@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <chrono>
+#include <fstream>
 using namespace std;
 
 void generateArray(int A[], int size){
@@ -62,7 +63,14 @@ int main(){
 	cin >> k;
 
 	generateArray(A,ARRAY_SIZE);
-
+	
+	//Write output into a txt for checking purposes
+	ofstream outFile;
+	outFile.open("check.txt");
+	for (int i =0; i < ARRAY_SIZE; i++)
+		outFile << A[i] << " ";
+	outFile.close();
+	
 	// array a, start index p, end index r, target index k
 	auto start = chrono::system_clock::now();
 	cout << "The " << k << "th smallest element is: " << quickSelect(A, 0, ARRAY_SIZE - 1, k-1) << endl;
