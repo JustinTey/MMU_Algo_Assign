@@ -1,32 +1,36 @@
-// filename: mergesort.cpp
-
 #include <iostream>
 #include <chrono>
 using namespace std;
 
 void printArray (int A[], int n) {
-  for (int i = 0; i < n; ++i)
-    cout << A[i] << ' ';
-  cout << endl;
+	for (int i = 0; i < n; ++i)
+		cout << A[i] << ' ';
+	cout << endl;
+}
+
+void generateArray (int A[], int size){
+	srand(time(NULL)); //time(NULL) for random
+	for(int i = 0; i < size; i++)     
+	{
+		 A[i] = rand() % 100 + 1; //range of 1 to 100
+	}
 }
 
 void merge (int A[], int Temp[], int p, int m, int r) {
-  int i, j;
-  for (i = m + 1; i > p; i--) //n
-    Temp[i - 1] = A[i - 1];  //n + 5
-  for (j = m; j < r; j++)  //n 
-    Temp [r + m - j] = A[j + 1]; //n +6
-  
-  for (int k = p; k <= r; k++) //n
-    if (Temp[j] < Temp [i])	//n + 2
-      A[k] = Temp[j--];		//n + 2
-    else
-      A[k] = Temp[i++];		//n+2
+	int i, j;
+	for (i = m + 1; i > p; i--) //n
+		Temp[i - 1] = A[i - 1];  //n + 5
+	for (j = m; j < r; j++)  //n 
+		Temp [r + m - j] = A[j + 1]; //n +6
+
+	for (int k = p; k <= r; k++) //n
+	if (Temp[j] < Temp [i])	//n + 2
+		A[k] = Temp[j--];		//n + 2
+	else
+		A[k] = Temp[i++];		//n+2
 } //total 8n + 17
 
 void mergesort (int A[], int Temp[], int p, int r) {
-  // Put your code here!
-
 	if (p < r) 
 	{
 		// Divide: divide a into two nearly equal parts.
@@ -38,8 +42,6 @@ void mergesort (int A[], int Temp[], int p, int r) {
 		// Conquer: merge the two sorted halves.
 		merge (A, Temp,p, m, r);
      }
-
-
 }
 
 void startMergeSort (int A[], int n) {
@@ -49,17 +51,17 @@ void startMergeSort (int A[], int n) {
 }
 
 int main() {
-  // Put your code here!
-
-	const int n = 7;
-	int A[n] = {96,48,91,94,31,77,2};
-	cout<<"Original array: \n";
-	printArray(A, n);
-	auto start = chrono::system_clock::now();
-	startMergeSort(A, n);
-	auto end = chrono::system_clock::now();
-	chrono::duration<double> duration = end - start;
-	cout<< "Sorted array: \n";
-	printArray(A, n);
-	cout<<"Duration: "<<duration.count()<<"s\n";
+	const int ARRAY_SIZE = 10;
+	int A[ARRAY_SIZE];
+	
+	// Array of random number
+	generateArray(A, ARRAY_SIZE);
+	
+	cout << "Unsorted array: ";
+	printArray(A, ARRAY_SIZE);
+	
+	startMergeSort(A, ARRAY_SIZE);
+	
+	cout<< "Sorted array: ";
+	printArray(A, ARRAY_SIZE);
 }
