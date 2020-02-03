@@ -80,11 +80,11 @@ void averageCase(int *array, int size){
 	//Init random number generator.
 	srand(time(0));
 	for(int i = 0; i <= size; i++)
-		array[i] = (rand()%10000);
+		array[i] = rand() + 1;
 }
 
 int main(){
-	const int size = 10000; 
+	const int size = 100000; 
 	int array[size];
 	
 	int input;
@@ -104,17 +104,17 @@ int main(){
 	}
 	
 	//Show original output.
-	cout << "Before sort: ";					
-	printArray(array,size);
+	//cout << "Before sort: ";					
+	//printArray(array,size);
 	
 	//Show sorted output.	
-	cout << "\n\nAfter sorted: ";
+	//cout << "\n\nAfter sorted: ";
 	auto start = chrono::system_clock::now();
-	mergeSort(array, size, 0, size);
+	mergeSort(array, size, 0, size - 1);
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 		
-	printArray(array,size);
+	//printArray(array,size);
 	cout << "Duration: " << duration.count() << "s\n";
 
 	return 0;

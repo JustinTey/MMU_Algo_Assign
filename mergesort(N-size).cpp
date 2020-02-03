@@ -3,6 +3,12 @@
 #include <chrono>
 using namespace std;
 
+void printArray (int A[], int n ) {
+  for (int i = 0; i < n; ++i)
+    cout << A[i] << ' ';
+  cout << endl;
+}
+
 void merge(int *array, int size, int p,int r){
     
 	//Set the temp object size.
@@ -72,6 +78,7 @@ int main(){
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 	
+	printArray(array, size);
 	cout << "Duration: " << duration.count() << "s\n";
 	
 	return 0;
