@@ -70,5 +70,10 @@ int main(){
 	generateArray(A, ARRAY_SIZE);
 
 	// array a, start index p, end index r, target index k
+	auto start = chrono::system_clock::now();
 	cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, ARRAY_SIZE - 1) << endl;
+	auto end = chrono::system_clock::now();
+
+ 	chrono::duration<double> duration = end - start;
+ 	cout << "\nDuration: "<<duration.count()<<endl;
 }
