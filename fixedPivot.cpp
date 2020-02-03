@@ -5,12 +5,7 @@
 #include<random>
 using namespace std;
 
-void generateArray (int A[], int size){
-	for(int i = 0; i < size; i++)
-		 A[i] = i+1;
-}
-
-void generateArray2(int A[], int size){
+void generateArray(int A[], int size){
     std::random_device rd;
     std::default_random_engine eng {rd()};
     std::uniform_int_distribution<> dist(0, size);
