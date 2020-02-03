@@ -110,7 +110,7 @@ int main(){
 	ofstream outFile;
 	outFile.open("check.txt");
 	for (int i =0; i < size; i++)
-		outFile << A[i] << " ";
+		outFile << array[i] << " ";
 	outFile.close();
 	
 	//retrive k-element to find
