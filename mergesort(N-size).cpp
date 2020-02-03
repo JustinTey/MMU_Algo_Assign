@@ -1,12 +1,16 @@
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
+#include <random>
+#include <fstream>
 using namespace std;
 
-void printArray (int A[], int n ) {
-  for (int i = 0; i < n; ++i)
-    cout << A[i] << ' ';
-  cout << endl;
+void generateArray(int A[], int size){
+    std::random_device rd;
+    std::default_random_engine eng {rd()};
+    std::uniform_int_distribution<> dist(0, size);
+    for(int i = 0; i < size; i++)
+        A[i] = dist(eng);
 }
 
 void merge(int *array, int size, int p,int r){
@@ -65,20 +69,22 @@ int main(){
 	cout << "Enter the array size: ";
 	cin >> size;
 		
-	int array[size];
+	int* array = new int[size];
+	// Array of random number
+	generateArray(array, size);
 	
-	//Init random number generator.
-	srand (time(0));  
-	//Assign random number to the array.
-	for(int i = 0; i < size; i++)
-		array[size] = rand()%RAND_MAX;
+	//Write output into a txt for checking purposes
+	ofstream outFile;
+	outFile.open("check.txt");
+	for (int i =0; i < size; i++)
+		outFile << array[i] << " ";
+	outFile.close();
 	
 	auto start = chrono::system_clock::now();
 	mergeSort(array, size, 0, size-1);
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 	
-	printArray(array, size);
 	cout << "Duration: " << duration.count() << "s\n";
 	
 	return 0;
