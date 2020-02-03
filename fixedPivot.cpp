@@ -5,12 +5,7 @@
 #include<random>
 using namespace std;
 
-void generateArray (int A[], int size){
-	for(int i = 0; i < size; i++)
-		 A[i] = i+1;
-}
-
-void generateArray2(int A[], int size){
+void generateArray(int A[], int size){
     std::random_device rd;
     std::default_random_engine eng {rd()};
     std::uniform_int_distribution<> dist(0, size);
@@ -75,5 +70,10 @@ int main(){
 	generateArray(A, ARRAY_SIZE);
 
 	// array a, start index p, end index r, target index k
+	auto start = chrono::system_clock::now();
 	cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, ARRAY_SIZE - 1) << endl;
+	auto end = chrono::system_clock::now();
+
+ 	chrono::duration<double> duration = end - start;
+ 	cout << "\nDuration: "<<duration.count()<<endl;
 }
