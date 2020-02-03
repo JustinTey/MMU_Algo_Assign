@@ -41,6 +41,9 @@ void merge(int *array, int size, int p,int r){
     for(int i = p; i <= r; i++){
         array[i] = temp[i];
     } 
+	
+	delete temp;
+	temp = NULL;
 }
 
 void mergeSort(int *array, int size, int p, int r){
@@ -85,7 +88,7 @@ void averageCase(int *array, int size){
 }
 
 int main(){
-	const int size = 100000; 
+	const int size = 500000; 
 	int* array = new int[size];
 	
 	int input;
