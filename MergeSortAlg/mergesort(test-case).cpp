@@ -71,12 +71,54 @@ void bestCase(int *array,int size){
 }
 
 void worstCase(int *array,int size){
-	//Test size between 0 to 10000.
-	int range = size;
+	
+	int *left = new int[size];
+	int *right = new int[size];
+	
+	//A sorted value.
+	//cout << "Sorted input: ";
 	for(int i = 0; i < size; i++){
-		array[i] = range;
-		range--;
+		array[i] = i;
+		//cout << array[i] << " ";
 	}
+	//cout << endl;
+	
+	//Left array/tree with odd values.
+	//cout << "Left array: ";
+	for(int i = 0; i < size/2; i++){
+		left[i] = array[i*2]; //Only find odd since it is order value;
+		//cout << left[i] << " ";
+	}
+	//cout << endl;
+	
+	//Right array/tree with even values.
+	//cout << "Right array: ";
+	for(int i = 0; i < size/2; i++){
+		right[i] = array[i*2+1]; //Only find even since it is order value;
+		//cout << right[i] << " ";
+	}
+	//cout << endl;
+	
+	//Join them.
+	//Rewrite the original array values.	
+	int i;
+	for(i = 0; i < size/2; i++)
+		array[i] = right[i];
+		
+	for(int j = 0; j < size/2; j++)
+		array[i+j] = left[j];
+	
+	//Free the memory since it is a heap variables.
+	delete []left;
+	delete []right;
+	
+	//Print the combined version of the array.
+	//This should be the maximum comparision for input.(Worst case)
+	//Noted - > from stack overflow some people mentioned ascending or descending value is best case.
+	/* cout << "Worst case input: ";
+	for(int i = 0; i < size; i++)
+		cout << array[i] << " ";
+	cout << endl; */
 }
 
 void averageCase(int *array, int size){
