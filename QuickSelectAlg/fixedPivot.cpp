@@ -5,34 +5,26 @@
 #include <fstream>
 using namespace std;
 
-void generateArray(int A[], int size){
-	srand(1); //time(NULL) for random
-
+void generateArray (int A[], int size){
 	for(int i = 0; i < size; i++)
-        A[i] = i + 1;
-    //A[i] = rand() % size + 1; // A[i] = rand() % 10000 + 1; //range of 1 to 10000
+		 A[i] = i+1;
 }
 
 int partition(int arr[], int p, int r)
 {
-    int pivotIndex = rand() % (r + 1);
-    int pivot;
-    int swapIndex;
+    int pivotIndex, pi, swapIndex;
 
-    if(pivotIndex < p && pivotIndex + p <= r)
-         pivotIndex = pivotIndex + p;
-    else if (pivotIndex < p)
-        pivotIndex = p;
+    pivotIndex = r;
 
-    pivot = arr[pivotIndex];
-
-    //swap to last element
-    swap(arr[pivotIndex],arr[r]);
-    swapIndex = p;
+	pi = arr[pivotIndex];
+	swapIndex = p;
+	swap ( arr[pivotIndex], arr[r] );
 
 	for (int i = p; i < r; i++){
-		if ( arr[i] < pivot ){
-            swap( arr[swapIndex], arr[i] );
+		if ( arr[i] < pi ){
+			if ( i != swapIndex){
+				swap( arr[swapIndex], arr[i] );
+			}
 			swapIndex++;
 		}
 	}
