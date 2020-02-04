@@ -65,9 +65,9 @@ int main(){
 	cin >> size;
 	cout << "Please input the kth smallest element: ";
 	cin >> k;
-	
+
 	int* A = new int[size];
-	
+
 	// Array of random number
 	generateArray(A, size);
 
@@ -77,11 +77,13 @@ int main(){
 	for (int i =0; i < size; i++)
 		outFile << A[i] << " ";
 	outFile.close();
-	
+
 	// array a, start index p, end index r, target index k
 	auto start = chrono::system_clock::now();
 	cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, size - 1) << endl;
 	auto end = chrono::system_clock::now();
+
+    delete []A;
 
  	chrono::duration<double> duration = end - start;
  	cout << "\nDuration: "<<duration.count()<<endl;
