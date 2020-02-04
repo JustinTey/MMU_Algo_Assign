@@ -57,12 +57,12 @@ int main(){
 
 	cout << "1 -- Best case\n2 -- Average case\n3 -- Worst case\n\nSelect the test case: ";
 	cin >> choice;
-	
+
 	switch(choice){
 		case 1:	generateArray(A,ARRAY_SIZE);
 				k = ARRAY_SIZE;
 			    break;
-			
+
 		case 2:	cout << "Please input the kth smallest element: ";
 				cin >> k;
 				generateArray2(A,ARRAY_SIZE);
@@ -71,11 +71,11 @@ int main(){
 		case 3:	generateArray(A,ARRAY_SIZE);
 				k = 1;
 			    break;
-				
+
 		default : cout << "Invalid choice"<< endl;
 			      exit(0);
 	}
-	
+
 	//Write output into a txt for checking purposes
 	ofstream outFile;
 	outFile.open("check.txt");
@@ -83,9 +83,11 @@ int main(){
 		outFile << A[i] << " ";
 	outFile.close();
 
-	auto start = chrono::system_clock::now();	
+	auto start = chrono::system_clock::now();
     cout << "The " << k << "th smallest element is: " << quickSelectSort(A, 0, k - 1, ARRAY_SIZE - 1) << endl;
 	auto end = chrono::system_clock::now();
+
+	delete []A;
 
  	chrono::duration<double> duration = end - start;
  	cout << "\nDuration: " << duration.count() << endl;
