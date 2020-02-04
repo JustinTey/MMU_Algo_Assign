@@ -83,7 +83,7 @@ void averageCase(int *array, int size){
 	//Test size between 0 to 10000.
 	//Init random number generator.
 	srand(1);
-	for(int i = 0; i <= size; i++)
+	for(int i = 0; i < size; i++)
 		array[i] = rand()%size;
 }
 
