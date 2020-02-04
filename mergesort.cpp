@@ -56,15 +56,23 @@ void startMergeSort (int A[], int n) {
 int main() {
 	const int ARRAY_SIZE = 10;
 	int A[ARRAY_SIZE];
+	int input;
 	
 	// Array of random number
 	generateArray(A, ARRAY_SIZE);
+	
+	//retrive k-element to find
+	cout << "Which element would you like to find in the array?"<<endl;
+	cin >> input;
 	
 	cout << "Unsorted array: ";
 	printArray(A, ARRAY_SIZE);
 	
 	startMergeSort(A, ARRAY_SIZE);
+	int answer = A[input-1];
 	
 	cout<< "Sorted array: ";
 	printArray(A, ARRAY_SIZE);
+	
+	cout<< "Element in position " <<input<<" is "<< answer;
 }

@@ -96,7 +96,7 @@ int main(){
 	printArray(array,size);
 	cout << "Duration: " << duration.count() << "s\n";
 
-	cout<< "Element in position " <<input<<" is "<< answer;
+	cout<< "Element in position " << input << " is " << answer;
 	delete[] array;
 	return 0;
 }
