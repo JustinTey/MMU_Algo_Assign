@@ -13,9 +13,9 @@ Cases for Mergesort:
 
 Best Case = A sorted input.
 
-Average Case = Half of the input is sorted while the other half scrambled.
+Average Case = A random input.
 
-Worst Case = A desecding sorted input.
+Worst Case = An array with ODD on the left side while Even on the Right.
 
 Cases for QuickSelect: ( Only fixed pivot will be used to test )
 
