@@ -130,7 +130,7 @@ void averageCase(int *array, int size){
 }
 
 int main(){
-	const int size = 500000; 
+	const int size = 10000; 
 	int* array = new int[size];
 	
 	int input;
