@@ -64,23 +64,25 @@ void mergeSort(int *array, int size, int p, int r){
 	merge(array, size, p, r);
 }
 
-void averageCase(int *array, int size){
+void generateArray(int *array, int size){
 	//Test size between 0 to 10000.
 	//Init random number generator.
-	srand(1);
+	srand(time(NULL));
 	for(int i = 0; i <size; i++)
-		array[i] = rand()%size;
+		array[i] = rand() % 100 + 1; //range of 1 to 100
 }
 
 int main(){
+	int input;
 	const int size = 10; 
 	int* array = new int[size];
 	
-	averageCase(array,size);
+	generateArray(array,size);
 
 	//retrive k-element to find
-	cout<<"Which element would you like to find in the array?"<<endl;
-	cin>>input;
+	cout << "Which element would you like to find in the array? ";
+	cin >> input;
+	
 	//Show original output.
 	cout << "Before sort: ";					
 	printArray(array,size);
@@ -92,11 +94,11 @@ int main(){
 	auto end = chrono::system_clock::now();
 	chrono::duration<double> duration = end - start;
 	
-	cout << "\n\nAfter sorted: ";
+	cout << "After sorted: ";
 	printArray(array,size);
+	cout<< "Element in position " << input << " is " << answer << endl;
 	cout << "Duration: " << duration.count() << "s\n";
-
-	cout<< "Element in position " << input << " is " << answer;
+	
 	delete[] array;
 	return 0;
 }
