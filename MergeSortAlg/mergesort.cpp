@@ -97,5 +97,7 @@ int main(){
 	cout << "Duration: " << duration.count() << "s\n";
 
 	cout<< "Element in position " <<input<<" is "<< answer;
+	delete array;
+	array = NULL;
 	return 0;
 }
