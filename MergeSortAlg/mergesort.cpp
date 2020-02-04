@@ -64,26 +64,11 @@ void mergeSort(int *array, int size, int p, int r){
 	merge(array, size, p, r);
 }
 
-void bestCase(int *array,int size){
-	//Test size between 0 to 10000.
-	for(int i = 0; i < size; i++)
-		array[i] = i;
-}
-
-void worstCase(int *array,int size){
-	//Test size between 0 to 10000.
-	int range = size;
-	for(int i = 0; i < size; i++){
-		array[i] = range;
-		range--;
-	}
-}
-
 void averageCase(int *array, int size){
 	//Test size between 0 to 10000.
 	//Init random number generator.
 	srand(1);
-	for(int i = 0; i <= size; i++)
+	for(int i = 0; i <size; i++)
 		array[i] = rand()%size;
 }
 
