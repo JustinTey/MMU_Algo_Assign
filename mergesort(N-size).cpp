@@ -16,7 +16,7 @@ void generateArray(int A[], int size){
 void merge(int *array, int size, int p,int r){
     
 	//Set the temp object size.
-    int temp[size];
+    int *temp = new int[size];
 	
 	//Midpoint of the array.
 	int mid = (p + r)/2;
@@ -44,6 +44,8 @@ void merge(int *array, int size, int p,int r){
     for(int i = p; i <= r; i++){
         array[i] = temp[i];
     } 
+    
+    delete []temp;
 }
 
 void mergeSort(int *array, int size, int p, int r){
@@ -87,8 +89,10 @@ int main(){
 	
 	cout << "Duration: " << duration.count() << "s\n";
 	
+	delete []array;
 	return 0;
 }
+
 
 
 
