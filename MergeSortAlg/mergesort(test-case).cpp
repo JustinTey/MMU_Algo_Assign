@@ -42,8 +42,7 @@ void merge(int *array, int size, int p,int r){
         array[i] = temp[i];
     } 
 	
-	delete temp;
-	temp = NULL;
+	delete[] temp;
 }
 
 void mergeSort(int *array, int size, int p, int r){
@@ -178,8 +177,7 @@ int main(){
 
 	cout<< "Element in position " <<input<<" is "<< answer;
 	
-	delete array;
-	array = NULL;
+	delete[] array;
 	
 	return 0;
 }
