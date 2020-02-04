@@ -42,7 +42,7 @@ void merge(int *array, int size, int p,int r){
         array[i] = temp[i];
     } 
 	
-	delete temp;
+	delete[] temp;
 	temp = NULL;
 }
 
